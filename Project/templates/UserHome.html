@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Home - Legal Ease</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS for the User Home Page */
+        body {
+            background-color: #1a202c;
+            /* Dark mode background color */
+            color: #ffffff;
+            /* White text color */
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            
+        }
+
+        .nav-bar {
+            background-color: #2d3748;
+            /* Dark blue background color */
+            color: #ffffff;
+            padding: 2rem 0;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .nav-links ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links li {
+         
+            transition: transform 0.3s ease;
+        }
+
+        .nav-links li:hover {
+            transform: scale(1.1);
+        }
+
+        /* Case List Styles */
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .user-home-container {
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 800px;
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .submit-button {
+            padding: 10px 20px;
+            background-color: #007acc;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background-color: #005587;
+        }
+
+        .case-list {
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+
+        .case {
+            background-color: #4a5568;
+            /* Gray-blue background color */
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            position: relative;
+            transition: transform 0.3s ease;
+            /* Added transition */
+        }
+
+        .case:hover {
+            transform: scale(1.02);
+            /* Hover effect */
+        }
+
+        .case h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .case-details {
+            display: none;
+        }
+
+        .case-details p {
+            margin: 0.5rem 0;
+        }
+
+        .show-more-button,
+        .show-less-button {
+            background-color: #2d3748;
+            /* Dark blue background color */
+            color: #ffffff;
+            border: none;
+            padding: 0.25rem 0.5rem;
+            /* Reduced padding */
+            border-radius: 4px;
+            cursor: pointer;
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            /* Added transitions */
+        }
+
+        .show-more-button:hover,
+        .show-less-button:hover {
+            background-color: #1a202c;
+            /* Darker shade on hover */
+            transform: scale(1.05);
+            /* Hover effect */
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav-bar">
+        <div class="nav-container container mx-auto">
+            <h1 class="nav-title text-2xl font-semibold font-cinzel"><a href="">LegalEase</a></h1>
+            <div class="nav-links">
+                <ul class="flex space-x-4">
+                    <li><a href="{% url 'Announcement' %}">Announcements</a></li>
+                    <li><a href="{% url 'findlawyers' %}">Find Lawyer</a></li>
+                    <li><a href="{% url 'calendar' %}">Calendar</a></li>
+                    <li><a href="{% url 'filecomplaint' %}">File Complaint</a></li>
+                    <li><a href="{% url 'userLogin' %}">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="user-home-container mx-auto">
+        <!-- Case Submission Form -->
+        <form action="#" method="POST" class="rounded-lg p-6 bg-gray-800 shadow-lg">
+            <h2 class="text-2xl font-semibold text-white mb-4">Case Submission</h2>
+            <div class="mb-4">
+                <input type="text"
+                    class="w-full px-3 py-2 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:border-indigo-600"
+                    placeholder="Case Number" required>
+            </div>
+            <div class="mb-4">
+                <input type="text"
+                    class="w-full px-3 py-2 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:border-indigo-600"
+                    placeholder="Link for Documents" required>
+            </div>
+            <div class="mb-4">
+                <select
+                    class="w-full px-3 py-2 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:border-indigo-600"
+                    required>
+                    <option value="" disabled selected>Select City</option>
+                    <option value="city1">City 1</option>
+                    <option value="city2">City 2</option>
+                    <!-- Add more city options as needed -->
+                </select>
+            </div>
+            <div class="mb-4">
+                <select
+                    class="w-full px-3 py-2 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:border-indigo-600"
+                    required>
+                    <option value="" disabled selected>Select Court Type</option>
+                    <option value="district">District Court</option>
+                    <option value="high">High Court</option>
+                    <option value="supreme">Supreme Court</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <select
+                    class="w-full px-3 py-2 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:border-indigo-600"
+                    required>
+                    <option value="" disabled selected>Select Case Type</option>
+                    <option value="civil">Civil Case</option>
+                    <option value="criminal">Criminal Case</option>
+                    <!-- Add more case type options as needed -->
+                </select>
+            </div>
+            <button type="submit"
+                class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-2 rounded-md transition duration-300 ease-in-out">Submit</button>
+        </form>
+
+        <!-- Case List Section -->
+        <div class="case-list">
+            <p class="text-center text-3xl p-2">Active Cases</p>
+
+            <!-- Sample Case 1 -->
+            <div class="case">
+                <h3>Case Number: ABC123</h3>
+                <div class="case-details">
+                    <p>Status: Pending</p>
+                    <p>City: City 1</p>
+                    <p>Court Type: District Court</p>
+                    <p>Case Type: Civil Case</p>
+                    <!-- Add more case details as needed -->
+                </div>
+                <button class="show-more-button">Show More</button>
+                <button class="show-less-button hidden">Show Less</button>
+            </div>
+
+            <!-- Sample Case 2 -->
+            <div class="case">
+                <h3>Case Number: XYZ456</h3>
+                <div class="case-details">
+                    <p>Status: Pending</p>
+                    <p>City: City 2</p>
+                    <p>Court Type: High Court</p>
+                    <p>Case Type: Criminal Case</p>
+                    <!-- Add more case details as needed -->
+                </div>
+                <button class="show-more-button">Show More</button>
+                <button class="show-less-button hidden">Show Less</button>
+            </div>
+
+            <!-- Add more cases here -->
+        </div>
+    </div>
+
+    <script>
+        // Get all show-more and show-less buttons
+        const showMoreButtons = document.querySelectorAll('.show-more-button');
+        const showLessButtons = document.querySelectorAll('.show-less-button');
+
+        // Add click event listeners to toggle case details visibility
+        showMoreButtons.forEach((button, index) => {
+            button.addEventListener('click', () => {
+                toggleCaseDetails(index, true);
+            });
+        });
+
+        showLessButtons.forEach((button, index) => {
+            button.addEventListener('click', () => {
+                toggleCaseDetails(index, false);
+            });
+        });
+
+        // Function to toggle case details visibility
+        function toggleCaseDetails(index, show) {
+            const caseDetails = document.querySelectorAll('.case-details')[index];
+            const showMoreButton = showMoreButtons[index];
+            const showLessButton = showLessButtons[index];
+
+            if (show) {
+                caseDetails.style.display = 'block';
+                showMoreButton.style.display = 'none';
+                showLessButton.style.display = 'block';
+            } else {
+                caseDetails.style.display = 'none';
+                showMoreButton.style.display = 'block';
+                showLessButton.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Announcements - Legal Ease</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+         body {
+            background-color: #1a202c; /* Dark mode background color */
+            color: black; /* White text color */
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background-image: url('https://thedailyguardian.com/wp-content/uploads/2023/07/karnataka-high-court.jpg'); /* Replace 'background.jpg' with your image file path */
+            background-size: cover; /* Adjust the background size as needed */
+            background-repeat: no-repeat; /* Prevent background image from repeating */
+            background-attachment: fixed; /* Fixed background position */
+        }
+
+
+        .nav-bar {
+            background-color: rgba(0, 0, 0, 0.5); /* Dark blue background color */
+            color: #ffffff;
+            padding: 1rem 0;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .nav-links ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links li {
+            transition: transform 0.3s ease;
+        }
+
+        .nav-links li:hover {
+            transform: scale(1.1);
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .announcement-form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .announcement-form h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .announcement-form label {
+            font-weight: bold;
+        }
+
+        .announcement-form input[type="text"],
+        .announcement-form input[type="url"],
+        .announcement-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .announcement-form button {
+            background-color: #007acc;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .announcement-form button:hover {
+            background-color: #005587;
+        }
+
+        .announcement-list {
+            margin-top: 20px;
+        }
+
+        .announcement-item {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .announcement-item h3 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .announcement-item p {
+            margin-bottom: 10px;
+        }
+
+        .announcement-item a {
+            color: #007acc;
+            text-decoration: underline;
+        }
+
+/* Edit and Delete Button Styles */
+.edit-button,
+.delete-button {
+    background-color: transparent;
+    color: #007acc;
+    border: 2px solid #007acc;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    z-index: 1;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.delete-button {
+    left: 0; /* Position at the left corner */
+    border-color: #ff0000;
+    color: #ff0000;
+}
+
+.edit-button {
+    left: 600px; /* Adjust the left position as needed */
+}
+
+.delete-button{
+    left: 670px;
+}
+.edit-button:hover{
+    background-color: #007acc;
+    color: #ffffff;
+}
+.delete-button:hover {
+    background-color: red;
+    color: #ffffff;
+}
+
+
+
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-container container mx-auto">
+            <h1 class="nav-title text-2xl font-semibold font-cinzel"><a href="{% url 'indexpage' %}">LegalEase</a></h1>
+            <div class="nav-links">
+                <ul class="flex space-x-4">
+                    <li><a href="{% url 'departmenthome' %}">Home</a></li>
+                    <li><a href="{% url 'allotment' %}">Allotment</a></li>
+                    <li><a href="{% url 'departmentLogin' %}">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="announcement-form">
+            <h2>Create Announcement</h2>
+            <form action="#" method="POST">
+                <label for="heading">Heading:</label>
+                <input type="text" id="heading" name="heading" required>
+
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" rows="4" required></textarea>
+
+                <label for="link">Link:</label>
+                <input type="url" id="link" name="link" required>
+
+                <button type="submit">Announce</button>
+            </form>
+        </div>
+
+        <div class="announcement-list">
+            <div class="announcement-item">
+                <h3>Important Document 1</h3>
+                <p>This is an announcement about an important document. You can download it <a href="#">here</a>.</p>
+                <button class="edit-button">Edit</button>
+                <button class="delete-button">Delete</button>
+            </div>
+
+            <div class="announcement-item">
+                <h3>Announcement Title 2</h3>
+                <p>This is another announcement. You can access the related document <a href="#">here</a>.</p>
+                <button class="edit-button">Edit</button>
+                <button class="delete-button">Delete</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

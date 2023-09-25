@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Ease - File a Complaint</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom Navbar Styles */
+        .navbar {
+            background-color: #007acc;
+            color: #ffffff;
+            padding: 1rem 0;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .navbar-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .navbar-links ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-links li {
+            margin-right: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-links li:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container container mx-auto">
+            <h1 class="navbar-title text-2xl font-semibold font-cinzel"><a href="#">LegalEase</a></h1>
+            <div class="navbar-links">
+                <ul class="flex space-x-4">
+                    <li><a href="{% url 'UserHome' %}">Home</a></li>
+                    <li><a href="{% url 'userLogin' %}">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto mt-8">
+        <!-- Complaint Form -->
+        <div class="bg-white rounded-lg p-8 shadow-md">
+            <h2 class="text-2xl font-semibold mb-4">File a Complaint</h2>
+            <form action="#" method="post">
+                <!-- Complaint Input -->
+                <div class="mb-4">
+                    <label for="complaint" class="block text-gray-700 text-sm font-medium mb-2">Complaint:</label>
+                    <textarea id="complaint" name="complaint" rows="4" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-400"></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="text-center">
+                    <button type="submit" class="bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-400">Submit Complaint</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Past Complaints Section -->
+        <div class="mt-8">
+            <h2 class="text-2xl font-semibold mb-4">Past Complaints</h2>
+            <ul>
+                <!-- Sample Past Complaints (You can dynamically generate these) -->
+                <li class="bg-gray-100 p-4 mb-2 rounded-lg">
+                    <p class="text-gray-600 text-sm mb-2">Date: July 1, 2023</p>
+                    <p class="text-gray-700">Complaint: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </li>
+                <li class="bg-gray-100 p-4 mb-2 rounded-lg">
+                    <p class="text-gray-600 text-sm mb-2">Date: June 15, 2023</p>
+                    <p class="text-gray-700">Complaint: Ut vel cursus quam, nec sagittis justo.</p>
+                </li>
+                <!-- Add more past complaints here -->
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

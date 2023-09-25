@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration - Legal Ease</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS for the Registration Page */
+        body {
+            background-color: #1a202c;
+            /* Dark mode background color */
+            color: #ffffff;
+            /* White text color */
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .nav-bar {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #ffffff;
+            padding: 2rem 0;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .nav-links ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links li {
+            margin-right: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-links li:hover {
+            transform: scale(1.1);
+        }
+
+        /* Registration Form Styles */
+        .registration-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .registration-form {
+            background-color: rgba(1, 1, 1, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            width: 400px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .radio-group {
+            margin-bottom: 20px;
+        }
+
+        .radio-label {
+            display: flex;
+            align-items: center;
+        }
+
+        .radio-input {
+            margin-right: 10px;
+        }
+
+        .form-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007acc; /* User-specific design color */
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-button:hover {
+            background-color: #005587; /* Darker shade on hover */
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-container container mx-auto">
+            <h1 class="nav-title text-2xl font-semibold font-cinzel"><a href="{% url 'indexpage' %}">LegalEase</a></h1>
+            <div class="nav-links">
+                <ul class="flex space-x-4">
+                    <li><a href="{% url 'userLogin' %}">User</a></li>
+                    <li><a href="{% url 'lawyerLogin' %}">Lawyers</a></li>
+                    <li><a href="{% url 'departmentLogin' %}" >Department</a></li>
+                    <li><a href="{% url 'Register' %}" >Register</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="registration-container">
+        <form class="registration-form" action="#" method="POST"> <!-- Replace with your form action -->
+            <h2 class="text-2xl font-semibold mb-4">Registration</h2>
+            <input type="text" class="form-input" placeholder="Gmail" required>
+            <input type="text" class="form-input" placeholder="SSN (type 0 if User)" required>
+            <input type="password" class="form-input" placeholder="Password" required>
+            <input type="password" class="form-input" placeholder="Confirm Password" required>
+
+            <div class="radio-group">
+                <label class="radio-label">
+                    <input type="radio" class="radio-input" name="role" value="User" required> User
+                </label>
+                <label class="radio-label">
+                    <input type="radio" class="radio-input" name="role" value="Lawyer" required> Lawyer
+                </label>
+                <label class="radio-label">
+                    <input type="radio" class="radio-input" name="role" value="Department" required> Department
+                </label>
+            </div>
+
+            <button type="submit" class="form-button">Register</button>
+        </form>
+    </div>
+</body>
+</html>

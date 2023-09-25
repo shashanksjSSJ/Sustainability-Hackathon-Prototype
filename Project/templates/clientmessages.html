@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LegalEase - Client Messages</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
+
+    <style>
+        /* Navbar Styles */
+        .navbar {
+            background-color: #007acc;
+            color: #ffffff;
+            padding: 1rem 0;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .navbar-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .navbar-links ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-links li {
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-links li:hover {
+            transform: scale(1.1);
+        }
+
+        /* Client Messages Styles */
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .messages-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .client-box {
+            margin: 20px 0;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+        }
+
+        .client-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .message-box {
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        .message-button {
+            background-color: #007acc;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .message-button:hover {
+            background-color: #005eaa;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container container mx-auto p-4">
+            <h1 class="navbar-title text-2xl font-semibold font-cinzel"><a href="#">LegalEase</a></h1>
+            <div class="navbar-links">
+                <ul class="flex space-x-4">
+                    <li><a href="{% url 'lawyerhome' %}">Home</a></li>
+                    <li><a href="{% url 'lawyerLogin' %}">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Client Messages Section -->
+    <div class="messages-container">
+        <div class="client-box">
+            <div class="client-name">Client Name</div>
+            <div class="message-box">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi.</div>
+            <button class="message-button">Message Client</button>
+        </div>
+        <div class="client-box">
+            <div class="client-name">Another Client</div>
+            <div class="message-box" style="background-color: rgb(247, 148, 120);">No previous messages</div>
+            <button class="message-button">Message Client</button>
+        </div>
+    </div>
+</body>
+</html>

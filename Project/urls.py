@@ -1,0 +1,26 @@
+from django.urls import path
+from . import views
+urlpatterns=[
+    path('', views.index, name='indexpage'), 
+    path('userLogin/', views.userLogin,name='userLogin'), 
+    path('laywerLogin/', views.lawyerLogin, name='lawyerLogin'), 
+    path('DepartmentLogin/', views.DepartmentLogin, name='departmentLogin'), 
+    path('Register/', views.Register, name='Register'), 
+    path('Announcement/', views.Announcement, name='Announcement'), 
+    path('userhome/', views.UserHome, name='UserHome'), 
+    path('findlawyers/', views.findLawyer, name='findlawyers'), 
+    path('calendar/', views.calendar, name='calendar'), 
+    path('departmentHome/', views.departmentHome, name='departmenthome'), 
+    path('makeannouncements/', views.makeannouncements, name='makeannouncements'),
+    path('allotment/', views.allotment, name='allotment'), 
+    path('allotmentcalendar/', views.allotmentcalendar, name='allotmentcalendar'), 
+    path('updatecalendar/', views.updatecalendar, name='updatecalendar'), 
+    path('lawyerhome/', views.lawyerhome, name='lawyerhome'), 
+    path('viewcase/', views.viewcase, name='viewcase'), 
+    path('updatecase/', views.updatecase, name='updatecase'), 
+    path('reallocatetime/', views.reallocate, name='reallocate'), 
+    path('activecases/', views.activecases, name='activecases'), 
+    path('clientmessages/', views.clientmessages, name='clientmessages'), 
+    path('filecomplaint/', views.filecomplaint, name='filecomplaint'), 
+    path('complaints/', views.complaints, name='complaints'), 
+]   

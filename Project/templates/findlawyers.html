@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Lawyers - Legal Ease</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .nav-bar {
+            background-color: #007acc;
+            color: #ffffff;
+            padding: 2rem 0;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .nav-links ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links li {
+          transition: transform 0.3s ease;
+        }
+
+        .nav-links li:hover {
+            transform: scale(1.1);
+        }
+
+
+        .lawyer-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin: 20px;
+            max-width: 300px;
+            text-align: center;
+        }
+
+        .lawyer-image {
+            border-radius: 50%;
+            max-width: 100px;
+            margin: 0 auto 10px;
+        }
+
+        .lawyer-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .lawyer-specialization {
+            font-style: italic;
+            color: #666;
+        }
+
+        .lawyer-contact {
+            margin-top: 10px;
+        }
+
+        .message-button {
+            background-color: #007acc;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 16px;
+            margin-top: 10px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .message-button:hover {
+            background-color: #005f7f;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav-bar">
+        <div class="nav-container container mx-auto">
+            <h1 class="nav-title text-2xl font-semibold font-cinzel"><a href="#">LegalEase</a></h1>
+            <div class="nav-links">
+                <ul class="flex space-x-4">
+                    <li><a href="{% url 'Announcement' %}">Announcements</a></li>
+                    <li><a href="{% url 'UserHome' %}">Home</a></li>
+                    <li><a href="{% url 'userLogin' %}">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto">
+        <h2 class="text-2xl font-semibold text-center mt-8 mb-4">Find Lawyers</h2>
+        <div class="flex flex-wrap justify-center">
+            <div class="lawyer-card">
+                <img src="lawyer1.jpg" alt="Lawyer 1" class="lawyer-image">
+                <div class="lawyer-name">John Doe</div>
+                <div class="lawyer-specialization">Criminal Defense</div>
+                <div class="lawyer-contact">
+                    <p>Email: john.doe@example.com</p>
+                    <p>Phone: (123) 456-7890</p>
+                    <p>Years of Practice: 10+</p>
+                    <button class="message-button">Message Lawyer</button>
+                </div>
+            </div>
+            <div class="lawyer-card">
+                <img src="lawyer2.jpg" alt="Lawyer 2" class="lawyer-image">
+                <div class="lawyer-name">Jane Smith</div>
+                <div class="lawyer-specialization">Family Law</div>
+                <div class="lawyer-contact">
+                    <p>Email: jane.smith@example.com</p>
+                    <p>Phone: (987) 654-3210</p>
+                    <p>Years of Practice: 8+</p>
+                    <button class="message-button">Message Lawyer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

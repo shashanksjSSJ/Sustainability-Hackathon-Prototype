@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Home - Legal Ease</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS for the User Home Page */
+        body {
+            background-color: #1a202c; /* Dark mode background color */
+            color: #ffffff; /* White text color */
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background-image: url('https://thedailyguardian.com/wp-content/uploads/2023/07/karnataka-high-court.jpg'); /* Replace 'background.jpg' with your image file path */
+            background-size: cover; /* Adjust the background size as needed */
+            background-repeat: no-repeat; /* Prevent background image from repeating */
+            background-attachment: fixed; /* Fixed background position */
+        }
+
+
+        .nav-bar {
+            background-color: rgba(0, 0, 0, 0.5); /* Dark blue background color */
+            color: #ffffff;
+            padding: 2rem 0;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .nav-links ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links li {
+            transition: transform 0.3s ease;
+        }
+
+        .nav-links li:hover {
+            transform: scale(1.1);
+        }
+
+        /* Case List Styles */
+        .case-list {
+            max-width: 1400px;
+            margin: 2rem auto;
+        }
+
+        .case-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: -15px; /* Adjust as needed */
+        }
+
+        .case {
+            background-color: #4a5568; /* Gray-blue background color */
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 15px; /* Adjust as needed */
+            flex: 0 0 calc(20% - 30px); /* Fixed width for up to 5 cases per row with margin */
+        }
+
+        .case h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+       /* Button Container Styles */
+.button-container {
+    display: flex; /* Display buttons in a row */
+    justify-content: space-between; /* Space them evenly */
+    align-items: center; /* Vertically center buttons */
+}
+
+/* Button Container Styles */
+.button-container {
+    padding: 5px;
+    padding-top: 8px    ;
+    display: flex; /* Display buttons in a row */
+    justify-content:space-around; /* Space them evenly */
+    align-items: center; /* Vertically center buttons */
+}
+
+/* Accept Button Styles */
+.accept-button {
+    background-color: #007acc; /* User-specific design color */
+    color: #ffffff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    flex: 1; /* Take up equal space with the Reject button */
+    margin-right: 5px; /* Add some spacing between buttons */
+}
+
+.accept-button:hover {
+    background-color: rgba(49, 113, 241, 0.5); /* Darker shade on hover */
+}
+
+/* Reject Button Styles */
+.reject-button {
+    background-color: #ff0000; /* Red background color */
+    color: #ffffff; /* White text color */
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    flex: 1; /* Take up equal space with the Accept button */
+    margin-left: 5px; /* Add some spacing between buttons */
+}
+
+.reject-button:hover {
+    background-color: #cc0000; /* Darker shade of red on hover */
+}
+
+
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-container container mx-auto">
+            <h1 class="nav-title text-2xl font-semibold font-cinzel"><a href="{% url 'departmenthome' %}">LegalEase</a></h1>
+            <div class="nav-links">
+                <ul class="flex space-x-4">
+                    <li><a href="{% url 'activecases' %}">Active Cases</a></li>
+                    <li><a href="{% url 'reallocate' %}">Pending Cases</a></li>
+                    <li><a href="{% url 'allotmentcalendar' %}">Allotment</a></li>
+                    <li><a href="{% url 'makeannouncements' %}">Make Announcements</a></li>
+                    <li><a href="{% url 'complaints' %}">Complaints</a></li>
+                    <li><a href="{% url 'departmentLogin' %}">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Case List Section -->
+        <div class="case-list">
+            <!-- Sample Cases -->
+            <div class="case-row">
+                <!-- Case 1 -->
+                <div class="case">
+                    <h3>Case Number: ABC123</h3>
+                    <div class="case-details">
+                        <p>City: City 1</p>
+                        <p>Court Type: District Court</p>
+                        <p>Case Type: Civil Case</p>
+                    </div>
+                    <div class="button-container">
+                        
+                        <a href="{% url 'allotment' %}">
+                            <button class="accept-button">Accept</button>
+                        </a>
+                        <a href="">
+                            <button class="reject-button">Reject</button>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="case">
+                    <h3>Case Number: ABC123</h3>
+                    <div class="case-details">
+                        <p>City: City 1</p>
+                        <p>Court Type: District Court</p>
+                        <p>Case Type: Civil Case</p>
+                    </div>
+                    <div class="button-container">
+                        
+                        <a href="{% url 'allotment' %}">
+                            <button class="accept-button">Accept</button>
+                        </a>
+                        <a href="">
+                            <button class="reject-button">Reject</button>
+                        </a>
+                    </div>
+                    
+                </div>
+
+                <div class="case">
+                    <h3>Case Number: ABC123</h3>
+                    <div class="case-details">
+                        <p>City: City 1</p>
+                        <p>Court Type: District Court</p>
+                        <p>Case Type: Civil Case</p>
+                    </div>
+                    <div class="button-container">
+                        
+                        <a href="{% url 'allotment' %}">
+                            <button class="accept-button">Accept</button>
+                        </a>
+                        <a href="">
+                            <button class="reject-button">Reject</button>
+                        </a>
+                    </div>
+                </div>
+
+                
+               
+                <!-- Add more cases here -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>

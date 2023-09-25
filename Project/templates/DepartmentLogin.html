@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department Login - LegalEase</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS for the User Login Page */
+        body {
+            background-color: white(63, 36, 83); 
+            color: #003366; /* Dark blue text color */
+            margin: 0; /* Remove default margin to ensure full width */
+            padding: 0; /* Remove default padding to ensure full width */
+            overflow-x: hidden; /* Prevent horizontal scrollbar */
+            background-image: url('https://c4.wallpaperflare.com/wallpaper/307/345/278/scales-wallpaper-preview.jpg'); /* Replace 'background.jpg' with your image file path */
+            background-size: cover; /* Adjust the background size as needed */
+            background-repeat: no-repeat; /* Prevent background image from repeating */
+            background-attachment: fixed; /* Fixed background position */
+        }
+
+        /* Center the login con
+        tainer */
+        .login-container {
+            background-color: rgba(0, 0, 0, 0.9);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 800px;
+            width: 100%;
+            margin: 0 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            animation: fadeIn 1s ease-in-out; /* Fade-in animation */
+        }
+
+        .login-design {
+            flex: 1;
+            padding: 20px;
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+        }
+
+        .login-form {
+            flex: 1;
+            padding: 40px;
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007acc; /* User-specific design color */
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-button:hover {
+            background-color: #005587; /* Darker shade on hover */
+        }
+
+       
+
+        /* Style the User-specific design area */
+        .user-design-content {
+            text-align: center;
+        }
+
+        /* Style the form heading */
+        .form-heading {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* Keyframes for the color-changing animation */
+        @keyframes colorChange {
+            0% {
+                background-color: #007acc; /* User-specific design color */
+            }
+            20% {
+                background-color: #f0b840; /* Red */
+            }
+            40%{
+                background-color: #64db32;
+            }
+            60%{
+                background-color: #9c35e6;
+            }
+            80% {
+                background-color: #2ecc71; /* Green */
+            }
+            100%{
+                background-color: rgb(217, 75, 123);
+            }
+        }
+
+        /* Keyframes for the fade-in animation */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        .nav-bar {
+            background-color: rgba(0, 0, 0, 0.2);
+            color: #ffffff;
+            padding: 2rem 0;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .nav-links ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links li {
+            transition: transform 0.3s ease;
+        }
+
+        .nav-links li:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-container container mx-auto" style="animation: fadeIn 1.5s ease-in-out forwards;">
+            <h1 class="nav-title text-2xl font-semibold font-cinzel"><a href="{% url 'indexpage' %}">LegalEase</a></h1>
+            <div class="nav-links">
+                <ul class="flex space-x-4">
+                    <li><a href="{% url 'userLogin' %}">User</a></li>
+                    <li><a href="{% url 'lawyerLogin' %}">Lawyers</a></li>
+                    <li><a href="{% url 'departmentLogin' %}">Department</a></li>
+                    <li><a href="{% url 'Register' %}">Register</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="login-container">
+        <div class="login-design">
+            <!-- User-specific design here -->
+            <div class="user-design-content color-change">
+                <img src="https://judgesandlawyers.com/wp-content/uploads/2023/05/ministry-of-law-and-justice.jpg" alt="Lawyer Logo" style="max-width: 100%; height: auto;">
+                <!-- Add other design elements as needed -->
+            </div>
+        </div>
+        <div class="login-form">
+            <h2 class="form-heading">Department Login</h2>
+            <form action="#" method="POST"> <!-- Replace with your form action -->
+                {% csrf_token %}
+                <input type="text" class="form-input" placeholder="Office ID (SSN)">
+                <input type="password" class="form-input" placeholder="Password">
+            </form>
+            <a href="{% url 'departmenthome' %}"><button  class="form-button">Login</button></a>
+        </div>
+    </div>
+</body>
+</html>

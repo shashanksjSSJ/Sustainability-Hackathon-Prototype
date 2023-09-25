@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Active Cases - Legal Ease</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f5f5f5; /* Light gray background color */
+            color: #333; /* Dark gray text color */
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .nav-bar {
+            background-color: #ffffff; /* White navbar background color */
+            color: #333; /* Dark gray text color */
+            padding: 1rem 0;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .nav-links ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links li {
+            margin-right: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-links li:hover {
+            transform: scale(1.1);
+        }
+
+        .case-list-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #ffffff; /* White background color for the case list */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .case-list-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .case-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f5f5f5; /* Light gray background for case items */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .case-name {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        .case-id {
+            font-size: 1rem;
+            color: #666; /* Gray text color for case ID */
+        }
+
+        .move-to-pending-button {
+            background-color: #3498db; /* Blue button background color */
+            color: #fff; /* White button text color */
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .move-to-pending-button:hover {
+            background-color: #2980b9; /* Darker blue on hover */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-container container mx-auto">
+            <h1 class="nav-title text-2xl font-semibold font-cinzel"><a href="#">LegalEase</a></h1>
+            <div class="nav-links">
+                <ul class="flex space-x-4">
+                    <li><a href="{% url 'departmenthome' %}">Home</a></li>
+                    <li><a href="{% url 'departmentLogin' %}">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="case-list-container mx-auto">
+        <h2 class="case-list-title">Active Running Cases</h2>
+        <div class="case-item">
+            <div>
+                <p class="case-name">Case Name: Active Case 1</p>
+                <p class="case-id">Case ID: 123456789</p>
+            </div>
+            <a href="{% url 'reallocate'%}"><button class="move-to-pending-button">Move to Pending</button></a>
+            
+        </div>
+        <div class="case-item">
+            <div>
+                <p class="case-name">Case Name: Active Case 2</p>
+                <p class="case-id">Case ID: 987654321</p>
+            </div>
+            <a href="{% url 'reallocate'%}"><button class="move-to-pending-button">Move to Pending</button></a>
+        </div>
+    </div>
+</body>
+</html>

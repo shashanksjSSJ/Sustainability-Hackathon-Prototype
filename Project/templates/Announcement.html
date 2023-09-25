@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Announcements - Legal Ease</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        
+        body {
+            background-color: white;
+            color: #003366; 
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .nav-bar {
+            background-color: #1f1f1f;
+            color: #ffffff;
+            padding: 1rem 0;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .nav-links ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links li {
+           
+            transition: transform 0.3s ease;
+        }
+
+        .nav-links li:hover {
+            transform: scale(1.1);
+        }
+
+        
+        .announcements-container {
+            background-color: #f5f5f5;
+            padding: 40px;
+            margin: 0 auto;
+            max-width: 800px;
+        }
+
+        .announcement {
+            margin-bottom: 20px;
+        }
+
+        .announcement h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .announcement p {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .announcement a {
+            color: #007acc; 
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-container container mx-auto p-4" style="animation: fadeIn 1.5s ease-in-out forwards;">
+            <h1 class="nav-title text-2xl font-semibold font-cinzel"><a href="{% url 'indexpage' %}">LegalEase</a></h1>
+            <div class="nav-links">
+                <ul class="flex space-x-4">
+                    <li><a href="{% url 'Announcement' %}">Announcements</a></li>
+                    <li><a href="{% url 'calendar' %}">Calendar</a></li>
+                    <li><a href="{% url 'userLogin' %}">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="announcements-container">
+        <div class="announcement">
+            <h3>Important Document 1</h3>
+            <p>This is an announcement about an important document. You can download it <a href="#">here</a>.</p>
+        </div>
+        <div class="announcement">
+            <h3>Announcement Title 2</h3>
+            <p>This is another announcement. You can access the related document <a href="#">here</a>.</p>
+        </div>
+    </div>
+</body>
+</html>

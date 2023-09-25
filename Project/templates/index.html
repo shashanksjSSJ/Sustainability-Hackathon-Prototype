@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LegalEase - Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS for Hero Section */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #1f1f1f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        /* Loading animation (you can customize this) */
+        .loader {
+            border: 4px solid #ffffff;
+            border-top: 4px solid transparent;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 2s linear infinite;
+        }
+
+        /* Main content is initially hidden */
+        .main-content {
+            display: none;
+        }
+
+        /* Keyframes for the loading spinner animation */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .nav-bar {
+            background-color: #1f1f1f;
+            color: #ffffff;
+            padding: 1rem 0;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .nav-links ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links li {
+            transition: transform 0.3s ease;
+        }
+
+        .nav-links li:hover {
+            transform: scale(1.1);
+        }
+        .hero-bg {
+            background-image: url('https://e0.pxfuel.com/wallpapers/772/715/desktop-wallpaper-lawyer-black-and-white-criminal-law.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            height: 80vh; /* Adjust the height as needed */
+            
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            animation: fadeIn 1.5s ease-in-out forwards;
+        }
+        .about-section {
+            background-color: #1f1f1f;
+            color: #ffffff;
+            padding: 6rem 0;
+        }
+
+        .about-text {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            opacity: 0; /* Initial opacity for animation */
+            animation: fadeIn 1.5s ease-in-out forwards; /* Animation name and duration */
+        }
+
+        .about-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-paragraph {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        /* Keyframes for the fadeIn animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .services-section {
+            background-color: #1f1f1f;
+            color: #ffffff;
+            padding: 6rem 0;
+        }
+
+        .service-card {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border: 1px solid #ffffff;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .announcements-container {
+            background-color: #ffffff; /* White background */
+            color: #000000; /* Black text */
+            padding: 2rem 0;
+            overflow: hidden;
+        }
+
+        .announcements-heading {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .announcements-list {
+            animation: rollUp 10s linear infinite; /* Adjust duration as needed */
+            transform: translateY(0);
+        }
+
+        /* Individual announcement styles */
+        .announcement {
+            margin-bottom: 0.5rem;
+        }
+
+        .announcement a {
+            color: #000000; /* Black link color */
+            text-decoration: underline;
+        }
+
+    </style>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Main Content (hidden initially) -->
+    <div class="main-content">
+        <!-- Navigation Bar -->
+        <nav class="nav-bar">
+            <div class="nav-container container mx-auto p-4" style="animation: fadeIn 1.5s ease-in-out forwards;">
+                <h1 class="nav-title text-2xl font-semibold font-cinzel"><a href="{% url 'indexpage' %}">LegalEase</a></h1>
+                <div class="nav-links">
+                    <ul class="flex space-x-4">
+                        <li><a href="{% url 'Announcement' %}">Announcements</a></li>
+                        <li><a href="{% url 'calendar' %}">Calendar</a></li>
+                        <li><a href="{% url 'userLogin' %}">Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <header class="hero-bg text-white">
+            <div class="container mx-auto hero-content">
+                <h2 class="text-4xl font-bold text-center mb-4">Your Partner in Legal Matters</h2>
+                <p class="text-lg text-center mb-8">Streamline your case management with Legal Ease. Upload documents, schedule court hearings, and more.</p>
+                <!-- <a href="#upload" class="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold rounded-full px-6 py-3 transition duration-300 ease-in-out transform hover:scale-105">Get Started</a> -->
+            </div>
+        </header>
+
+        <!-- About Us Section -->
+        <section class="about-section">
+            <div class="container mx-auto">
+                <h2 class="about-title text-3xl text-white mx-auto justify-center" style=" text-align: center;">Welcome to Legal Ease</h2>
+                <section class="services-section">
+                    <div class="container mx-auto flex flex-wrap justify-center">
+                        <!-- Service 1 -->
+                        <div class="service-card mx-4">
+                            <div class="service-icon">📁</div>
+                            <div class="service-title">Document Management</div>
+                            <p class="text-white">Effortlessly organize and manage your case documents.</p>
+                        </div>
+            
+                        <!-- Service 2 -->
+                        <div class="service-card mx-4">
+                            <div class="service-icon">🤝</div>
+                            <div class="service-title">Legal Consultation</div>
+                            <p class="text-white">Get expert legal advice from our registered lawyers.</p>
+                        </div>
+            
+                        <!-- Service 3 -->
+                        <div class="service-card mx-4">
+                            <div class="service-icon">📅</div>
+                            <div class="service-title">Court Timings</div>
+                            <p class="text-white">Access court timings and manage your hearings.</p>
+                        </div>
+                        <!-- Add more service cards as needed -->
+                    </div>
+                </section>
+                <div class="about-text">
+                    
+
+                    <p class="about-paragraph">At Legal Ease, we are proud to be associated with the Ministry of Law of the Indian Government, dedicated to providing a comprehensive platform for individuals seeking legal assistance and practicing lawyers willing to extend their services. We understand that navigating the legal landscape can be a daunting task, and we are here to simplify the process for you.</p>
+                    <p class="about-paragraph">Our platform empowers users to register their cases with ease. Upon logging in, users can upload their relevant documents securely, ensuring that their case details are readily available for legal professionals. Not only can you register your case effortlessly, but you can also manage it efficiently. Our user-friendly interface allows you to update or delete documents as required, putting you in control of your case's progress.</p>
+                    <p class="about-paragraph">Legal Ease brings you a vast network of registered practicing lawyers who are eager to assist you with your legal concerns. Whether you're dealing with a family matter, a contractual dispute, or any other legal issue, our platform is your gateway to legal expertise. You can browse through profiles, reviews, and specialties to choose the lawyer who best fits your needs.</p>
+                    <p class="about-paragraph">We believe that effective communication is key to resolving legal matters efficiently. Our platform offers a dedicated messaging system that allows users to send messages directly to the lawyers they've chosen to work with. Lawyers, in turn, can access their accounts to view inquiries, respond promptly, and initiate meaningful conversations to understand your case thoroughly.</p>
+                    <p class="about-paragraph">Legal proceedings can be time-sensitive, and we value your time. Therefore, we allocate court timings on a first-come, first-served (FCFS) basis, ensuring a fair distribution of resources. Each user is allotted a one-hour slot during court timings to address their case. Our system updates court timings regularly to accommodate your needs and preferences.</p>
+                    <p class="about-paragraph">At Legal Ease, our mission is to make legal assistance accessible to everyone in India. We prioritize transparency, security, and convenience, ensuring that you have the tools and resources you need to navigate the legal process with confidence. Whether you're a user seeking help or a lawyer offering your expertise, we welcome you to our platform and look forward to serving your legal needs.</p>
+                    <p class="about-paragraph">Join Legal Ease today, and let us simplify your legal journey.</p>
+                </div>
+            </div>
+        </section>
+
+    
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2023 Legal Ease. All rights reserved.</p>
+        </div>
+    </footer>
+    </div>
+
+    <!-- JavaScript to hide loading screen when page is fully loaded -->
+    <script>
+        window.addEventListener('load', function() {
+            const loadingScreen = document.querySelector('.loading-screen');
+            const mainContent = document.querySelector('.main-content');
+
+            // Hide loading screen and show main content
+            loadingScreen.style.opacity = 0;
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+                mainContent.style.display = 'block';
+            }, 500); // Adjust the delay as needed
+        });
+    </script>
+</body>
+</html>
+</html>
