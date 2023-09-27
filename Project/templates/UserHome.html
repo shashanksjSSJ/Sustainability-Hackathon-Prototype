@@ -7,12 +7,12 @@
     <title>User Home - Legal Ease</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
     <style>
-        /* Custom CSS for the User Home Page */
+       
         body {
             background-color: #1a202c;
-            /* Dark mode background color */
+           
             color: #ffffff;
-            /* White text color */
+           
             margin: 0;
             padding: 0;
             overflow-x: hidden;
@@ -21,7 +21,7 @@
 
         .nav-bar {
             background-color: #2d3748;
-            /* Dark blue background color */
+            
             color: #ffffff;
             padding: 2rem 0;
             box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
@@ -100,18 +100,18 @@
 
         .case {
             background-color: #4a5568;
-            /* Gray-blue background color */
+            
             padding: 1rem;
             border-radius: 8px;
             margin-bottom: 1rem;
             position: relative;
             transition: transform 0.3s ease;
-            /* Added transition */
+          
         }
 
         .case:hover {
             transform: scale(1.02);
-            /* Hover effect */
+            
         }
 
         .case h3 {
@@ -141,15 +141,15 @@
             bottom: 1rem;
             right: 1rem;
             transition: background-color 0.3s ease, transform 0.3s ease;
-            /* Added transitions */
+           
         }
 
         .show-more-button:hover,
         .show-less-button:hover {
             background-color: #1a202c;
-            /* Darker shade on hover */
+           
             transform: scale(1.05);
-            /* Hover effect */
+         
         }
     </style>
 </head>
@@ -211,18 +211,18 @@
                     <option value="" disabled selected>Select Case Type</option>
                     <option value="civil">Civil Case</option>
                     <option value="criminal">Criminal Case</option>
-                    <!-- Add more case type options as needed -->
+                   
                 </select>
             </div>
             <button type="submit"
                 class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-2 rounded-md transition duration-300 ease-in-out">Submit</button>
         </form>
 
-        <!-- Case List Section -->
+       
         <div class="case-list">
             <p class="text-center text-3xl p-2">Active Cases</p>
 
-            <!-- Sample Case 1 -->
+         
             <div class="case">
                 <h3>Case Number: ABC123</h3>
                 <div class="case-details">
@@ -230,13 +230,13 @@
                     <p>City: City 1</p>
                     <p>Court Type: District Court</p>
                     <p>Case Type: Civil Case</p>
-                    <!-- Add more case details as needed -->
+                    
                 </div>
                 <button class="show-more-button">Show More</button>
                 <button class="show-less-button hidden">Show Less</button>
             </div>
 
-            <!-- Sample Case 2 -->
+         
             <div class="case">
                 <h3>Case Number: XYZ456</h3>
                 <div class="case-details">
@@ -244,22 +244,22 @@
                     <p>City: City 2</p>
                     <p>Court Type: High Court</p>
                     <p>Case Type: Criminal Case</p>
-                    <!-- Add more case details as needed -->
+                   
                 </div>
                 <button class="show-more-button">Show More</button>
                 <button class="show-less-button hidden">Show Less</button>
             </div>
 
-            <!-- Add more cases here -->
+           
         </div>
     </div>
 
     <script>
-        // Get all show-more and show-less buttons
+     
         const showMoreButtons = document.querySelectorAll('.show-more-button');
         const showLessButtons = document.querySelectorAll('.show-less-button');
 
-        // Add click event listeners to toggle case details visibility
+      
         showMoreButtons.forEach((button, index) => {
             button.addEventListener('click', () => {
                 toggleCaseDetails(index, true);
@@ -272,7 +272,7 @@
             });
         });
 
-        // Function to toggle case details visibility
+     
         function toggleCaseDetails(index, show) {
             const caseDetails = document.querySelectorAll('.case-details')[index];
             const showMoreButton = showMoreButtons[index];
