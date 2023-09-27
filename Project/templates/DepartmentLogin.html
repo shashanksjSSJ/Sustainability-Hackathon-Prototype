@@ -6,21 +6,20 @@
     <title>Department Login - LegalEase</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
     <style>
-        /* Custom CSS for the User Login Page */
+        
         body {
             background-color: white(63, 36, 83); 
-            color: #003366; /* Dark blue text color */
-            margin: 0; /* Remove default margin to ensure full width */
-            padding: 0; /* Remove default padding to ensure full width */
-            overflow-x: hidden; /* Prevent horizontal scrollbar */
-            background-image: url('https://c4.wallpaperflare.com/wallpaper/307/345/278/scales-wallpaper-preview.jpg'); /* Replace 'background.jpg' with your image file path */
-            background-size: cover; /* Adjust the background size as needed */
-            background-repeat: no-repeat; /* Prevent background image from repeating */
-            background-attachment: fixed; /* Fixed background position */
+            color: #003366; 
+            margin: 0; 
+            padding: 0; 
+            overflow-x: hidden; 
+            background-image: url('https://c4.wallpaperflare.com/wallpaper/307/345/278/scales-wallpaper-preview.jpg');
+            background-size: cover;
+            background-repeat: no-repeat; 
+            background-attachment: fixed; 
         }
 
-        /* Center the login con
-        tainer */
+       
         .login-container {
             background-color: rgba(0, 0, 0, 0.9);
             position: absolute;
@@ -36,7 +35,7 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
             overflow: hidden;
-            animation: fadeIn 1s ease-in-out; /* Fade-in animation */
+            animation: fadeIn 1s ease-in-out; 
         }
 
         .login-design {
@@ -64,7 +63,7 @@
         .form-button {
             width: 100%;
             padding: 10px;
-            background-color: #007acc; /* User-specific design color */
+            background-color: #007acc;
             color: #ffffff;
             border: none;
             border-radius: 4px;
@@ -73,31 +72,29 @@
         }
 
         .form-button:hover {
-            background-color: #005587; /* Darker shade on hover */
+            background-color: #005587;
         }
 
        
 
-        /* Style the User-specific design area */
         .user-design-content {
             text-align: center;
         }
 
-        /* Style the form heading */
+      
         .form-heading {
             color: white;
             font-size: 1.5rem;
             font-weight: bold;
             margin-bottom: 20px;
         }
-
-        /* Keyframes for the color-changing animation */
+/
         @keyframes colorChange {
             0% {
-                background-color: #007acc; /* User-specific design color */
+                background-color: #007acc; 
             }
             20% {
-                background-color: #f0b840; /* Red */
+                background-color: #f0b840;
             }
             40%{
                 background-color: #64db32;
@@ -106,14 +103,12 @@
                 background-color: #9c35e6;
             }
             80% {
-                background-color: #2ecc71; /* Green */
+                background-color: #2ecc71;
             }
             100%{
                 background-color: rgb(217, 75, 123);
             }
         }
-
-        /* Keyframes for the fade-in animation */
         @keyframes fadeIn {
             0% {
                 opacity: 0;
