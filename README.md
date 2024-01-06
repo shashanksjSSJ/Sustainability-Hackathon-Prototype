@@ -18,3 +18,5 @@ LegalEase is designed to enhance the case management process. For a comprehensiv
 
 - **Hackathon Organizers:** Kumeresan C S and team for organizing the fantastic Sustainability Hackathon 3.0.
 - **Mentor:** Enric S Neelamkavil for valuable guidance throughout the event.
+
+Link for the website - https://sustainabilityhackathon.pythonanywhere.com/
